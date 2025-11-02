@@ -33,6 +33,8 @@ services:
       ConnectionStrings__Db: Host=postgres;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
       Redis__Url: ${REDIS_URL}
       Embeddings__BaseUrl: ${EMBEDDINGS_URL}
+      Ingestor__BaseUrl: http://ingestor:7000
+
     depends_on:
       - postgres
       - embeddings
@@ -63,6 +65,9 @@ services:
       - api
     ports:
       - "3000:3000"
+  ingestor:
+    build: ./services/ingestor
+    ports: ["7000:7000"]
 
 volumes:
   pgdata:

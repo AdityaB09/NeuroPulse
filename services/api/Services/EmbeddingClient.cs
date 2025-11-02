@@ -1,3 +1,5 @@
+namespace NeuroPulse.Api.Services;
+
 using System.Net.Http.Json;
 
 public class EmbeddingClient
